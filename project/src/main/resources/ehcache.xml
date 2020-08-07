@@ -1,0 +1,42 @@
+<config
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns='http://www.ehcache.org/v3'
+        xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
+
+    <!-- 检查 EhcacheEunm 和 EhcacheUtil 是否正常 pom中版本使用3.8.1-->
+
+    <cache alias="defaultString">
+        <!-- 这里的类型要和 EhcacheEnum 中的类型匹配-->
+        <key-type>java.lang.String</key-type>
+        <value-type>java.lang.String</value-type>
+        <expiry>
+            <!-- 存活时间-->
+            <ttl unit="minutes">5</ttl>
+            <!-- 空闲时间-->
+            <!--<tti unit="minutes">5</tti>-->
+        </expiry>
+        <resources>
+            <!-- 容纳多少条记录 -->
+            <heap unit="entries">2000</heap>
+            <!-- 在驱逐前，最多多大的堆外内存 -->
+            <offheap unit="MB">10</offheap>
+        </resources>
+    </cache>
+
+    <cache alias="defaultInterger">
+        <key-type>java.lang.String</key-type>
+        <value-type>java.lang.Integer</value-type>
+        <expiry>
+            <!-- 存活时间-->
+            <ttl unit="minutes">5</ttl>
+        </expiry>
+        <resources>
+            <!-- 容纳多少条记录 -->
+            <heap unit="entries">2000</heap>
+            <!-- 在驱逐前，最多多大的堆外内存 -->
+            <offheap unit="MB">10</offheap>
+        </resources>
+    </cache>
+
+
+</config>

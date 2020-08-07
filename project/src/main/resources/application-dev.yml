@@ -1,0 +1,55 @@
+
+
+### mysql 设置
+spring:
+  datasource:
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.140.206:49999/ews?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Hongkong
+    username: root
+    password: Summit2017
+    type: com.zaxxer.hikari.HikariDataSource
+    # 数据池
+    hikari:
+      pool-name: hikari-pool
+### redis 配置  如果需要请放开pom中相关的包，和config下的文件，test中有测试，如果项目不需要,这些都可以进行删除
+#  redis:
+#    host: localhost
+#    port: 6379
+#    password:
+### mqtt 配置 如果需要请放开pom中相关的包，和config下的文件，test中有测试，如果项目不需要,这些都可以进行删除
+### 如果不需要密码，则随便输入，不能为空
+#  mqtt:
+#    username: mqtt
+#    password: admin
+#    # 推送信息的连接地址，如果有多个，用逗号隔开，如：tcp://127.0.0.1:1883,tcp://192.168.60.133:1883
+#    url: tcp://127.0.0.1:1883 # tcp://182.92.73.149:61883
+#    sender:
+#      # 生产者连接服务器默认客户端ID
+#      clientId: ${random.value}
+#      # 默认的推送主题，实际可在调用接口时指定
+#      defaultTopic: mqttProducer
+#      # 默认的接收主题，实际可在调用接口时指定
+#    receiver:
+#      defaultTopic: mqttConsume
+#      clientId: ${random.value}
+
+
+### jwt 配置参数
+#jwt:
+#  # 密钥
+#  secret:
+#  # token 前缀
+#  tokenPrefix: token
+#  # 过期时间 毫秒
+#  expirationTime: 600000
+#  # refreshToken 过期时间，这个时间要比上面的时间长
+#  refreshExpirationTime:
+#  # token 的key head中key
+#  tokenKey:
+
+### netty
+netty:
+  tcp:
+    port: 8256
+
+
