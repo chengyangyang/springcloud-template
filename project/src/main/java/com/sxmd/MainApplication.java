@@ -3,6 +3,8 @@ package com.sxmd;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Description:  启动类
@@ -12,10 +14,16 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * Version 1.0
  */
 @SpringBootApplication
+@RestController
 @EnableDiscoveryClient
 public class MainApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class,args);
+    }
+
+    @RequestMapping("/")
+    public String get() {
+        return "test";
     }
 }

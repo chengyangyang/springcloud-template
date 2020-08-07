@@ -3,11 +3,11 @@
 ### mysql 设置
 spring:
   datasource:
-    #driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.140.206:49999/ews?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Hongkong
     username: root
     password: Summit2017
-    type: com.zaxxer.hikari.HikariDataSource
+    #type: com.zaxxer.hikari.HikariDataSource
     # 数据池
     hikari:
       pool-name: hikari-pool
