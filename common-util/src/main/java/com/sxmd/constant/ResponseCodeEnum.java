@@ -10,6 +10,10 @@ package com.sxmd.constant;
  */
 public enum ResponseCodeEnum {
 
+
+    /**
+     * web 返回码
+     */
     CODE_0000("请求成功"),
     CODE_8881("token不正确"),
     CODE_8882("token过期"),

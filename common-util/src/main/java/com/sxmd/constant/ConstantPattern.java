@@ -13,7 +13,10 @@ public interface ConstantPattern {
      * 正则表达式
      *
      */
-    // 组成 数字 字母 下划线
+
+    /**
+     * 组成 数字 字母 下划线
+     */
     String REGEX_ALPHANUMERIC_UNDERLINE = "^[0-9a-zA-Z_]+$";
 
 

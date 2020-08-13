@@ -1,5 +1,7 @@
 package com.sxmd.util;
 
+import com.sxmd.constant.ConstantSystem;
+
 /**
  * Description:  字节数组工具类
  *
@@ -16,12 +18,12 @@ public class ByteArrayUtil {
      * @param b:
      * @return java.lang.String
      * @author cy
-     * @date  2020/6/23 14:52
+     * @date 2020/6/23 14:52
      */
     public static String converBinaryStr(byte[] b) {
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < b.length; i++) {
-            result.append(StringUtil.addForStr(Long.toString(b[i] & 0xff, 2),8));
+            result.append(StringUtil.addForStr(Long.toString(b[i] & 0xff, 2), 8));
         }
         return result.toString();
     }
@@ -32,24 +34,23 @@ public class ByteArrayUtil {
      * @param binaryString:
      * @return byte[]
      * @author cy
-     * @date  2020/6/23 17:23
+     * @date 2020/6/23 17:23
      */
     public static byte[] binaryStrToByteArray(String binaryString) {
         // 数组长度
         int len = 0;
-        if(binaryString.length()%8 == 0){
-            len = binaryString.length()/8;
-        }else{
-            len = binaryString.length()/8 + 1;
+        if (binaryString.length() % ConstantSystem.NUM_EIGHT == 0) {
+            len = binaryString.length() / ConstantSystem.NUM_EIGHT;
+        } else {
+            len = binaryString.length() / ConstantSystem.NUM_EIGHT + 1;
         }
         byte[] b = new byte[len];
         for (int i = 0; i < len - 1; i++) {
-            b[i] = Long.valueOf(binaryString.substring(i * 8,8), 2).byteValue();
+            b[i] = Long.valueOf(binaryString.substring(i * 8, 8), 2).byteValue();
         }
-        b[len-1] =  Long.valueOf(binaryString.substring((len-1) * 8), 2).byteValue();
+        b[len - 1] = Long.valueOf(binaryString.substring((len - 1) * 8), 2).byteValue();
         return b;
     }
-
 
 
     /**
@@ -58,10 +59,10 @@ public class ByteArrayUtil {
      * @param hexString:
      * @return byte[]
      * @author cy
-     * @date  2020/6/23 15:44
+     * @date 2020/6/23 15:44
      */
     public static byte[] hexToBytes(String hexString) {
-        if (hexString == null || hexString.equals("")) {
+        if (hexString == null || "".equals(hexString)) {
             return null;
         }
         hexString = hexString.toUpperCase().trim();
@@ -85,7 +86,7 @@ public class ByteArrayUtil {
      * @param bytes:
      * @return java.lang.String
      * @author cy
-     * @date  2020/6/24 10:23
+     * @date 2020/6/24 10:23
      */
     public static String bytesToHexStr(byte[] bytes) {
         final char[] hexArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -100,32 +101,31 @@ public class ByteArrayUtil {
         return new String(hexChars);
     }
 
-   /**
-    * Description:   从字节数组中截取字节数组
-    *
-    * @param src:  数组
-    * @param begin:  开始下表
-    * @param len:  长度
-    * @return byte[]
-    * @author cy
-    * @date  2020/6/24 15:53
-    */
+    /**
+     * Description:   从字节数组中截取字节数组
+     *
+     * @param src:   数组
+     * @param begin: 开始下表
+     * @param len:   长度
+     * @return byte[]
+     * @author cy
+     * @date 2020/6/24 15:53
+     */
     public static byte[] subBytes(byte[] src, int begin, int len) {
         byte[] bs = new byte[len];
-        for (int i = begin; i < begin + len; i++){
+        for (int i = begin; i < begin + len; i++) {
             bs[i - begin] = src[i];
         }
         return bs;
     }
 
     /**
-     *
      * 将4个字节的字节数组转换为Int值 由高位到低位
      *
      * @param bytes
      * @return result 整型
-     *
-     *         方法添加日期: 2014年3月3日 创建者:刘源
+     * <p>
+     * 方法添加日期: 2014年3月3日 创建者:刘源
      */
     public static int byte2Int(byte[] bytes) {
         int result = 0;
@@ -135,21 +135,6 @@ public class ByteArrayUtil {
         return result;
     }
 
-
-    /**
-     * @函数功能: BCD码转为10进制串(阿拉伯数据)
-     * @输入参数: BCD码
-     * @输出结果: 10进制串
-     */
-    public static String bcd2Str(byte[] bytes){
-        StringBuffer temp=new StringBuffer(bytes.length*2);
-
-        for(int i=0;i<bytes.length;i++){
-            temp.append((byte)((bytes[i]& 0xf0)>>>4));
-            temp.append((byte)(bytes[i]& 0x0f));
-        }
-        return temp.toString().substring(0,1).equalsIgnoreCase("0")?temp.toString().substring(1):temp.toString();
-    }
 
     /**
      * @函数功能: 10进制串转为BCD码
@@ -165,29 +150,29 @@ public class ByteArrayUtil {
             len = asc.length();
         }
 
-        byte abt[] = new byte[len];
-        if (len >= 2) {
+        byte[] abt = new byte[len];
+        if (len >= ConstantSystem.NUM_TWO) {
             len = len / 2;
         }
 
-        byte bbt[] = new byte[len];
+        byte[] bbt = new byte[len];
         abt = asc.getBytes();
         int j, k;
 
-        for (int p = 0; p < asc.length()/2; p++) {
-            if ( (abt[2 * p] >= '0') && (abt[2 * p] <= '9')) {
+        for (int p = 0; p < asc.length() / ConstantSystem.NUM_TWO; p++) {
+            if ((abt[2 * p] >= '0') && (abt[2 * p] <= '9')) {
                 j = abt[2 * p] - '0';
-            } else if ( (abt[2 * p] >= 'a') && (abt[2 * p] <= 'z')) {
+            } else if ((abt[2 * p] >= 'a') && (abt[2 * p] <= 'z')) {
                 j = abt[2 * p] - 'a' + 0x0a;
             } else {
                 j = abt[2 * p] - 'A' + 0x0a;
             }
 
-            if ( (abt[2 * p + 1] >= '0') && (abt[2 * p + 1] <= '9')) {
+            if ((abt[2 * p + 1] >= '0') && (abt[2 * p + 1] <= '9')) {
                 k = abt[2 * p + 1] - '0';
-            } else if ( (abt[2 * p + 1] >= 'a') && (abt[2 * p + 1] <= 'z')) {
+            } else if ((abt[2 * p + 1] >= 'a') && (abt[2 * p + 1] <= 'z')) {
                 k = abt[2 * p + 1] - 'a' + 0x0a;
-            }else {
+            } else {
                 k = abt[2 * p + 1] - 'A' + 0x0a;
             }
 
@@ -197,12 +182,6 @@ public class ByteArrayUtil {
         }
         return bbt;
     }
-
-
-
-
-
-
 
 
 }

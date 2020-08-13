@@ -10,8 +10,7 @@ package com.sxmd.constant;
 public interface ConstantSystem {
 
     /**
-     *
-     *   数字
+     * 数字
      */
     int NUM_ZERO = 0;
     int NUM_ONE = 1;
@@ -20,10 +19,11 @@ public interface ConstantSystem {
     int NUM_FOUR = 4;
     int NUM_FIVE = 5;
     int NUM_SIX = 6;
+    int NUM_SEVEN = 7;
+    int NUM_EIGHT = 8;
 
     /**
-     *
-     *   字符串数字
+     * 字符串数字
      */
     String STR_NUM_ZERO = "0";
     String STR_NUM_ONE = "1";

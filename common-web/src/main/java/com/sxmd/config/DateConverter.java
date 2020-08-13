@@ -32,8 +32,7 @@ public class DateConverter implements Converter<String, Date> {
 
 
     /**
-     *  处理json返回的
-     *
+     * 处理json返回的
      */
     @Bean
     public LocalDateTimeSerializer localDateTimeDeserializer() {
@@ -59,12 +58,13 @@ public class DateConverter implements Converter<String, Date> {
     /**
      * 处理 json 传入的
      */
-    private static final List<String> formarts = new ArrayList<>(5);
-    static{
-        formarts.add("yyyy-MM");
-        formarts.add("yyyy-MM-dd");
-        formarts.add("yyyy-MM-dd HH:mm");
-        formarts.add("yyyy-MM-dd HH:mm:ss");
+    private static final List<String> FORMARTS = new ArrayList<>(5);
+
+    static {
+        FORMARTS.add("yyyy-MM");
+        FORMARTS.add("yyyy-MM-dd");
+        FORMARTS.add("yyyy-MM-dd HH:mm");
+        FORMARTS.add("yyyy-MM-dd HH:mm:ss");
     }
 
     @Override
@@ -73,27 +73,28 @@ public class DateConverter implements Converter<String, Date> {
         if ("".equals(value)) {
             return null;
         }
-        if(source.matches("^\\d{4}-\\d{1,2}$")){
-            return parseDate(source, formarts.get(0));
-        }else if(source.matches("^\\d{4}-\\d{1,2}-\\d{1,2}$")){
-            return parseDate(source, formarts.get(1));
-        }else if(source.matches("^\\d{4}-\\d{1,2}-\\d{1,2} {1}\\d{1,2}:\\d{1,2}$")){
-            return parseDate(source, formarts.get(2));
-        }else if(source.matches("^\\d{4}-\\d{1,2}-\\d{1,2} {1}\\d{1,2}:\\d{1,2}:\\d{1,2}$")){
-            return parseDate(source, formarts.get(3));
-        }else {
+        if (source.matches("^\\d{4}-\\d{1,2}$")) {
+            return parseDate(source, FORMARTS.get(0));
+        } else if (source.matches("^\\d{4}-\\d{1,2}-\\d{1,2}$")) {
+            return parseDate(source, FORMARTS.get(1));
+        } else if (source.matches("^\\d{4}-\\d{1,2}-\\d{1,2} {1}\\d{1,2}:\\d{1,2}$")) {
+            return parseDate(source, FORMARTS.get(2));
+        } else if (source.matches("^\\d{4}-\\d{1,2}-\\d{1,2} {1}\\d{1,2}:\\d{1,2}:\\d{1,2}$")) {
+            return parseDate(source, FORMARTS.get(3));
+        } else {
             throw new IllegalArgumentException("Invalid boolean value '" + source + "'");
         }
     }
 
     /**
      * 格式化日期
+     *
      * @param dateStr String 字符型日期
-     * @param format String 格式
+     * @param format  String 格式
      * @return Date 日期
      */
-    public  Date parseDate(String dateStr, String format) {
-        Date date=null;
+    public Date parseDate(String dateStr, String format) {
+        Date date = null;
         try {
             DateFormat dateFormat = new SimpleDateFormat(format);
             date = dateFormat.parse(dateStr);
@@ -109,7 +110,7 @@ public class DateConverter implements Converter<String, Date> {
         return new Converter<String, LocalDate>() {
             @Override
             public LocalDate convert(String source) {
-                if(StringUtils.isNotBlank(source)) {
+                if (StringUtils.isNotBlank(source)) {
                     return LocalDate.parse(source, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 }
                 return null;
@@ -122,7 +123,7 @@ public class DateConverter implements Converter<String, Date> {
         return new Converter<String, LocalDateTime>() {
             @Override
             public LocalDateTime convert(String source) {
-                if(StringUtils.isNotBlank(source)){
+                if (StringUtils.isNotBlank(source)) {
                     return LocalDateTime.parse(source, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
                 }
                 return null;
@@ -135,7 +136,7 @@ public class DateConverter implements Converter<String, Date> {
         return new Converter<String, LocalTime>() {
             @Override
             public LocalTime convert(String source) {
-                if(StringUtils.isNotBlank(source)){
+                if (StringUtils.isNotBlank(source)) {
                     return LocalTime.parse(source, DateTimeFormatter.ofPattern("HH:mm:ss"));
                 }
                 return null;

@@ -38,41 +38,41 @@ public class PageUtil<T> {
 
 
     public PageUtil(Integer pageNum, Integer pageSize, List<T> list) {
-        if(pageNum == null){
+        if (pageNum == null) {
             pageNum = 1;
         }
-        if(pageSize == null){
+        if (pageSize == null) {
             pageNum = 10;
         }
         this.pageNum = pageNum;
         this.pageSize = pageSize;
-        List<T> list1 = list.stream().skip((pageNum -1L) * pageSize).limit(pageSize).collect(Collectors.toList());
+        List<T> list1 = list.stream().skip((pageNum - 1L) * pageSize).limit(pageSize).collect(Collectors.toList());
         this.count = list.size();
-        if(count%pageSize == 0){
-            this.totalPages = count/pageSize;
-        }else{
-            this.totalPages = count/pageSize + 1;
+        if (count % pageSize == 0) {
+            this.totalPages = count / pageSize;
+        } else {
+            this.totalPages = count / pageSize + 1;
         }
-        this.content = (list1);//内容
+        this.content = (list1);
     }
 
     public PageUtil(Integer pageNum, Integer pageSize, Set<T> set) {
-        if(pageNum == null){
+        if (pageNum == null) {
             pageNum = 1;
         }
-        if(pageSize == null){
+        if (pageSize == null) {
             pageNum = 10;
         }
         this.pageNum = pageNum;
         this.pageSize = pageSize;
-        List<T> list1 = set.stream().skip((pageNum -1L) * pageSize).limit(pageSize).collect(Collectors.toList());
+        List<T> list1 = set.stream().skip((pageNum - 1L) * pageSize).limit(pageSize).collect(Collectors.toList());
         this.count = set.size();
-        if(count%pageSize == 0){
-            this.totalPages = count/pageSize;
-        }else{
-            this.totalPages = count/pageSize + 1;
+        if (count % pageSize == 0) {
+            this.totalPages = count / pageSize;
+        } else {
+            this.totalPages = count / pageSize + 1;
         }
-        this.content = (list1);//内容
+        this.content = (list1);
     }
 
 }

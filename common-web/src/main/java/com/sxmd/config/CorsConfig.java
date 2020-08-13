@@ -29,7 +29,11 @@ public class CorsConfig {
         return corsConfiguration;
     }
 
-    // 添加CorsFilter拦截器，对任意的请求使用
+    /**
+     * 添加CorsFilter拦截器，对任意的请求使用
+     *
+     * @return
+     */
     @ConditionalOnMissingBean
     @Bean
     public CorsFilter corsFilter() {
