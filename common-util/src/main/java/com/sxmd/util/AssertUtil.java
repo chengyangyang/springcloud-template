@@ -42,7 +42,6 @@ public class AssertUtil {
         }
     }
 
-
     /**
      * Description:   断言非空
      *
@@ -82,8 +81,8 @@ public class AssertUtil {
      * @author cy
      * @date 2020/8/14 17:02
      */
-    public static void hasLength(String str, String message) {
-        if (StringUtil.isBlank(str)) {
+    public static void isNotBlank(String str, String message) {
+        if (StringUtil.isNotBlank(str)) {
             throw new SxmdException(message);
         }
     }
@@ -97,8 +96,8 @@ public class AssertUtil {
      * @author cy
      * @date 2020/8/14 17:02
      */
-    public static void hasLength(String str, ResponseCodeEnum responseCodeEnum) {
-        if (StringUtil.isBlank(str)) {
+    public static void isNotBlank(String str, ResponseCodeEnum responseCodeEnum) {
+        if (StringUtil.isNotBlank(str)) {
             throw new SxmdException(responseCodeEnum);
         }
     }

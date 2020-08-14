@@ -15,12 +15,14 @@ import lombok.extern.slf4j.Slf4j;
 @Data
 public class SxmdException extends RuntimeException {
 
+    private static final long serialVersionUID = -3781325637548014389L;
     private String message;
     private ResponseCodeEnum responseCodeEnum;
 
-    public SxmdException() {
+    private SxmdException() {
 
     }
+
     public SxmdException(String message) {
         log.warn(message);
         this.message = message;
@@ -32,7 +34,7 @@ public class SxmdException extends RuntimeException {
     }
 
     public SxmdException(String message, Throwable cause) {
-        log.warn(message,cause);
+        log.warn(message, cause);
         this.message = message;
     }
 
