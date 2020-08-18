@@ -34,6 +34,7 @@
         <!-- 远程仓库地址 如果没有，填写一个虚拟的地址-->
         <docker.repostory>registry.cn-shanghai.aliyuncs.com/sxmd</docker.repostory>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
+        <swagger.version>1.5.24</swagger.version>
     </properties>
 
     <!-- 相当于使用父 pom-->

@@ -1,3 +1,4 @@
+### 如果开启配置中心，所有的配置以配置中心的为主
 
 server:
   port: 50012
@@ -22,7 +23,22 @@ spring:
         enabled: true
         file-extension: yaml
         prefix: gateway
+    gateway:
+      enabled: true
+      routes:
+        - id: cosum
+          uri: http://localhost:50013
+          predicates:
+          - Path=**
 
+
+### 自定配置 网关不支持 spring-web 配置要进行关闭
+sxmd:
+  common-web:
+    mybatis-plus-page-config:
+      enabled: false
+    cors-config:
+      enabled: false
 
 
 ### 对swagger-ui 增强 生产环境变成true,或者开启验证

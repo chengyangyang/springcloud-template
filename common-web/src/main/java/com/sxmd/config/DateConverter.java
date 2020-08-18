@@ -3,6 +3,7 @@ package com.sxmd.config;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,7 @@ import java.util.List;
  * Version 1.0
  */
 @Configuration
+@ConditionalOnExpression("${sxmd.common-web.date-converter.enabled:true}")
 public class DateConverter implements Converter<String, Date> {
 
 

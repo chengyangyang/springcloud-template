@@ -2,7 +2,7 @@ package com.sxmd.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Configuration;
  * Version 1.0
  */
 @Configuration
+@ConditionalOnExpression("${sxmd.common-web.mybatis-plus-page-config.enabled:true}")
 public class MybatisPlusConfig {
 
-    @ConditionalOnMissingBean
     @Bean
     public PaginationInterceptor paginationInterceptor() {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();

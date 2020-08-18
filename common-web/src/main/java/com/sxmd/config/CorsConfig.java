@@ -1,6 +1,6 @@
 package com.sxmd.config;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -15,6 +15,7 @@ import org.springframework.web.filter.CorsFilter;
  * Version 1.0
  */
 @Configuration
+@ConditionalOnExpression("${sxmd.common-web.cors-config.enabled:true}")
 public class CorsConfig {
 
     private CorsConfiguration buildConfig() {
@@ -34,7 +35,6 @@ public class CorsConfig {
      *
      * @return
      */
-    @ConditionalOnMissingBean
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
