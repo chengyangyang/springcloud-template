@@ -1,0 +1,33 @@
+### Tomcat
+server:
+  port: 50010
+  servlet:
+    context-path: /
+
+### 环境
+spring:
+  # 环境的选择   dev | prod
+  profiles:
+    active: dev
+  freemarker:
+    cache: false
+    suffix: .html
+
+
+### 对swagger-ui 增强 生产环境变成true,或者开启验证
+knife4j:
+  production: false
+  basic:
+    enable: true
+    username: admin
+    password: 123
+
+
+### mybatis  因为引用了plus 所以这里要用 plus 配置
+mybatis-plus:
+  mapper-locations: com/sxmd/content/*/mapper/*.xml
+  type-aliases-package: com.sxmd
+  configuration:
+    map-underscore-to-camel-case: true
+
+

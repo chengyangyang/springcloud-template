@@ -23,5 +23,4 @@ public class SwaggerUiWebFluxConfig implements WebFluxConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
-
 }

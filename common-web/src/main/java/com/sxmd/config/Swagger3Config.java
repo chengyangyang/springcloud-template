@@ -37,7 +37,7 @@ public class Swagger3Config {
         return new ApiInfoBuilder()
                 .title("Swagger3接口文档")
                 .description("文档描述")
-                .contact(new Contact("cyy", "390518881@qq.com", "390518881@qq.com"))
+                .contact(new Contact("cyy", "https://github.com/chengyangyang/springcloud-template.git", "390518881@qq.com"))
                 .version("1.0")
                 .build();
     }
