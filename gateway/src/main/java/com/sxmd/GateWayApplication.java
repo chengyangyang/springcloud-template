@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.oas.annotations.EnableOpenApi;
 
 /**
  * Description:  启动类
@@ -17,10 +16,10 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @SpringBootApplication
 @RestController
 @EnableDiscoveryClient
-public class MainApplication {
+public class GateWayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MainApplication.class,args);
+        SpringApplication.run(GateWayApplication.class, args);
     }
 
     @RequestMapping("/")

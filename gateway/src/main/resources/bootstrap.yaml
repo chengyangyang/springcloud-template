@@ -25,11 +25,12 @@ spring:
         prefix: gateway
     gateway:
       enabled: true
-      routes:
-        - id: cosum
-          uri: http://localhost:50013
-          predicates:
-          - Path=**
+      discovery:
+        # 开启通过服务中心自动根据serviceId创建路由的功能
+        locator:
+          enabled: true
+          # 项目名称可以小写
+          lower-case-service-id: true
 
 
 ### 自定配置 网关不支持 spring-web 配置要进行关闭
@@ -39,7 +40,8 @@ sxmd:
       enabled: false
     cors-config:
       enabled: false
-
+    web-mvc:
+      enabled: false
 
 ### 对swagger-ui 增强 生产环境变成true,或者开启验证
 knife4j:
