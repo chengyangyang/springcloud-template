@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 /**
  * Description: 路由规则详情实体
  *
- * @author summit
+ * @author sxmd
  * @date Version 1.0
  */
 @Data

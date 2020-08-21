@@ -9,7 +9,7 @@ import lombok.Data;
  * Description: 添加路由规则实体
  * 字段需要修改，需移至EditModel中
  *
- * @author summit
+ * @author sxmd
  * @date Version 1.0
  */
 @Data

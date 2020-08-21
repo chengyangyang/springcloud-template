@@ -20,10 +20,10 @@ import java.util.List;
 public class CustomExceptionHandle {
 
     @ExceptionHandler(SxmdException.class)
-    public AjaxResult handleSummitException(SxmdException e) {
-        if(e.getResponseCodeEnum() != null){
+    public AjaxResult handlesxmdException(SxmdException e) {
+        if (e.getResponseCodeEnum() != null) {
             return new AjaxResult().error(e.getResponseCodeEnum());
-        }else {
+        } else {
             return new AjaxResult().error(e.getMessage());
         }
     }
@@ -32,16 +32,16 @@ public class CustomExceptionHandle {
      * Description:    jsr303  异常统一处理
      *
      * @param e:
-     * @return com.summit.base.AjaxResult
+     * @return com.sxmd.base.AjaxResult
      * @author cy
-     * @date  2020/7/2 19:27
+     * @date 2020/7/2 19:27
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public AjaxResult methodArgumentNotValidException(MethodArgumentNotValidException e) {
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         String errorMessage = "";
         for (int i = 0; i < fieldErrors.size(); i++) {
-            errorMessage = errorMessage + "[" +fieldErrors.get(i).getDefaultMessage() + "]";
+            errorMessage = errorMessage + "[" + fieldErrors.get(i).getDefaultMessage() + "]";
         }
         return new AjaxResult().error(errorMessage);
     }

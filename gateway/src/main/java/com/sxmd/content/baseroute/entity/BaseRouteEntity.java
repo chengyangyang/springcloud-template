@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 /**
  * Description: 路由规则实体
  *
- * @author summit
+ * @author sxmd
  * @date Version 1.0
  */
 @Data

@@ -2,14 +2,11 @@ package com.sxmd.content.baseroute.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.sxmd.config.CustomRouteRepository;
 import com.sxmd.config.RouteInitConfig;
 import com.sxmd.constant.ResponseCodeEnum;
 import com.sxmd.content.baseroute.entity.BaseRouteEntity;
 import com.sxmd.content.baseroute.mapper.BaseRouteMapper;
-import com.sxmd.content.baseroute.model.BaseRouteAddModel;
 import com.sxmd.content.baseroute.model.BaseRouteEditModel;
-import com.sxmd.content.baseroute.model.BaseRouteListModel;
 import com.sxmd.exception.SxmdException;
 import com.sxmd.util.IdWorkerUil;
 import org.springframework.beans.BeanUtils;
@@ -17,10 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import reactor.core.publisher.Flux;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,7 +35,7 @@ public class BaseRouteServiceImpl extends ServiceImpl<BaseRouteMapper, BaseRoute
      * Description:   新增
      *
      * @param route:
-     * @author summit
+     * @author sxmd
      * @date
      */
     @Override
@@ -60,7 +55,7 @@ public class BaseRouteServiceImpl extends ServiceImpl<BaseRouteMapper, BaseRoute
      * Description: 更新
      *
      * @param model:
-     * @author summit
+     * @author sxmd
      * @date
      */
     @Override
@@ -78,7 +73,7 @@ public class BaseRouteServiceImpl extends ServiceImpl<BaseRouteMapper, BaseRoute
      * Description: 删除
      *
      * @param id: 主键
-     * @author summit
+     * @author sxmd
      * @date
      */
     @Override

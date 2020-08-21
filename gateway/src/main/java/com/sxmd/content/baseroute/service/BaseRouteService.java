@@ -2,16 +2,15 @@ package com.sxmd.content.baseroute.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sxmd.content.baseroute.entity.BaseRouteEntity;
-import com.sxmd.content.baseroute.model.*;
+import com.sxmd.content.baseroute.model.BaseRouteEditModel;
 import org.springframework.cloud.gateway.route.RouteDefinition;
-import reactor.core.publisher.Flux;
 
 import java.util.List;
 
 /**
  * Description: 路由规则接口
  *
- * @author summit
+ * @author sxmd
  * @date Version 1.0
  */
 public interface BaseRouteService extends IService<BaseRouteEntity> {
@@ -21,7 +20,7 @@ public interface BaseRouteService extends IService<BaseRouteEntity> {
      *
      * @param route:
      * @return
-     * @author summit
+     * @author sxmd
      * @date
      */
     Long insertBaseRoute(RouteDefinition route);
@@ -30,7 +29,7 @@ public interface BaseRouteService extends IService<BaseRouteEntity> {
      * Description:  路由规则-更新
      *
      * @param model:
-     * @author summit
+     * @author sxmd
      * @date
      */
     void updateBaseRoute(BaseRouteEditModel model);
@@ -39,7 +38,7 @@ public interface BaseRouteService extends IService<BaseRouteEntity> {
      * Description:   路由规则-删除
      *
      * @param id: 主键
-     * @author summit
+     * @author sxmd
      * @date
      */
     void deleteBaseRoute(Long id);

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Description: 路由规则 dao接口
  *
- * @author summit
+ * @author sxmd
  * @date Version 1.0
  */
 @Mapper
@@ -23,7 +23,7 @@ public interface BaseRouteMapper extends BaseMapper<BaseRouteEntity> {
      *
      * @param listRequestModel:
      * @return java.util.List
-     * @author summit
+     * @author sxmd
      * @date
      */
     List<BaseRouteListResponseModel> findBaseRouteList(BaseRouteListRequestModel listRequestModel);
@@ -33,7 +33,7 @@ public interface BaseRouteMapper extends BaseMapper<BaseRouteEntity> {
      *
      * @param :
      * @return java.util.List
-     * @author summit
+     * @author sxmd
      * @date
      */
     List<BaseRouteListModel> findAllList();
@@ -43,7 +43,7 @@ public interface BaseRouteMapper extends BaseMapper<BaseRouteEntity> {
      *
      * @param entityList:
      * @return long
-     * @author summit
+     * @author sxmd
      * @date
      */
     long batchInsert(List<BaseRouteEntity> entityList);
@@ -54,7 +54,7 @@ public interface BaseRouteMapper extends BaseMapper<BaseRouteEntity> {
      *
      * @param ids:
      * @return long
-     * @author summit
+     * @author sxmd
      * @date
      */
     long batchDeleteByIds(Long[] ids);

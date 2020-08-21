@@ -5,7 +5,7 @@ import com.sxmd.base.AjaxResult;
 import com.sxmd.base.BaseController;
 import com.sxmd.config.CustomRouteRepository;
 import com.sxmd.constant.ConstantWeb;
-import com.sxmd.content.baseroute.model.*;
+import com.sxmd.content.baseroute.model.BaseRouteEditModel;
 import com.sxmd.content.baseroute.service.BaseRouteService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -16,12 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * Description: 路由规则 控制器
  *
- * @author summit
+ * @author sxmd
  * @date Version 1.0
  */
 @RestController
@@ -38,7 +37,7 @@ public class BaseRouteController extends BaseController {
      * Description:   路由规则-所有数据
      *
      * @param :
-     * @author summit
+     * @author sxmd
      * @date
      */
     @ApiOperation(value = "所有数据", notes = "获得所有路由规则数据")
@@ -52,7 +51,7 @@ public class BaseRouteController extends BaseController {
      * Description:   路由规则-新增
      *
      * @param model:
-     * @author summit
+     * @author sxmd
      * @date
      */
     @ApiOperation(value = "新增", notes = "新增路由规则")
@@ -66,7 +65,7 @@ public class BaseRouteController extends BaseController {
      * Description:   路由规则-修改
      *
      * @param model:
-     * @author summit
+     * @author sxmd
      * @date
      */
     @ApiOperation(value = "修改", notes = "根据id更新路由规则")
@@ -81,7 +80,7 @@ public class BaseRouteController extends BaseController {
      * Description:   路由规则-删除
      *
      * @param id:
-     * @author summit
+     * @author sxmd
      * @date
      */
     @ApiOperation(value = "删除", notes = "根据Id删除路由规则")
